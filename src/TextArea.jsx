@@ -14,6 +14,8 @@ export default function TextArea() {
     } else if (newText.includes("@")) {
       setWarningText("No @ symbol allowed");
       newText = newText.replace("@", "");
+    } else {
+      setWarningText("");
     }
     setText(newText);
   };
@@ -26,8 +28,8 @@ export default function TextArea() {
         placeholder="Enter your text"
         spellCheck="false"
       />
-      {warningText ? <Warning warningText={warningText} /> : null}
-      <Warning />
+
+      <Warning warningText={warningText} />
     </div>
   );
 }
