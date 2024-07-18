@@ -7,18 +7,20 @@ export default function Container() {
   const numberOfWords = text.split(/\s/).filter((word) => word !== "").length;
 
   const numberOfCharacters = text.length;
-  const intagramCharactersLeft = 280 - text.length;
   const facebookCharactersLeft = 2200 - text.length;
+  const instagramCharactersLeft = 280 - text.length;
+
+  const stats = {
+    numberOfWords: numberOfWords,
+    numberOfCharacters: numberOfCharacters,
+    instagramCharactersLeft: instagramCharactersLeft,
+    facebookCharactersLeft: facebookCharactersLeft,
+  };
 
   return (
     <main className="container">
       <TextArea text={text} setText={setText} />
-      <Stats
-        numberOfWords={numberOfWords}
-        numberOfCharacters={numberOfCharacters}
-        intagramCharactersLeft={intagramCharactersLeft}
-        facebookCharactersLeft={facebookCharactersLeft}
-      />
+      <Stats stats={stats} />
     </main>
   );
 }
